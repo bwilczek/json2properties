@@ -1,0 +1,19 @@
+PATH
+  remote: .
+  specs:
+    json2properties (0.0.1)
+      java-properties (~> 0.2)
+
+GEM
+  remote: https://rubygems.org/
+  specs:
+    java-properties (0.2.0)
+
+PLATFORMS
+  ruby
+
+DEPENDENCIES
+  json2properties!
+
+BUNDLED WITH
+   1.13.6
