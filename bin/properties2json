@@ -3,4 +3,4 @@
 require_relative '../lib/json2properties_cli'
 
 cli = Json2propertiesCli.new(ARGV)
-cli.convert_file
+cli.unconvert_file

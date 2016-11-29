@@ -1,6 +1,6 @@
 # json2properties
 
-Simple tool that converts JSON files to equivalent content in Java `properties` format. Nested structures are flattened to fit `properties` key-value format.
+Simple tool that converts JSON files to equivalent content in Java `properties` format. Nested structures are flattened to fit `properties` key-value format. Provides reverse operation as well.
 
 ## Example
 
@@ -44,6 +44,9 @@ d.m.and.2=y
 ```
 $ gem install json2propeties
 $ json2propeties input.json output.properties
+
+# to perform reverse conversion:
+$ propeties2json input.properties output.json
 ```
 
 ### Code
@@ -54,8 +57,11 @@ require 'json2propeties'
 
 converter = Json2properties.new
 
-# Convert file
+# Convert json to properties
 converter.convert_file('/tmp/input.json', '/tmp/output.properties')
+
+# Convert properties to json
+converter.unconvert_file('/tmp/input.properties', '/tmp/output.json')
 
 # Convert JSON string to flattened key-value Hash
 json = JSON.generate({
@@ -75,4 +81,7 @@ props = converter.json2kv(json)
 	"a.1" => 5,
 	"a.2" => 6,
 }
+
+# reverse action
+reverse_engineered_json = converter.kv2json(props)
 ```
