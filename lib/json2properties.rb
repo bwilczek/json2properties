@@ -12,10 +12,15 @@ class String
 		return true if self.is_i?
 		true if Float(self) rescue false
 	end
+
+	def is_numeric_leading_zero?
+		self[0].eql?("0") && self.length > 1
+	end
+
 end
 
 class Json2properties
-	VERSION = '0.0.2'
+	VERSION = '0.0.3'
 	SEPARATOR = '.'
 
 	def initialize
@@ -53,11 +58,11 @@ class Json2properties
 				part = parts[i]
 				next_part = parts[i+1]
 
-				part = part.to_i if part.is_i?
+				part = part.to_i if ( part.is_i? && !part.is_numeric_leading_zero? )
 				if tmp[part].nil?
 					if next_part.nil?
 						tmp[part] = fix_type(v)
-					elsif next_part.is_i?
+					elsif next_part.is_i? && !next_part.is_numeric_leading_zero?
 						tmp[part] = []
 					else
 						tmp[part] = {}
@@ -72,6 +77,7 @@ class Json2properties
 	private
 
 	def fix_type(v)
+		return v if v.is_numeric_leading_zero?
 		return v.to_i if v.is_i?
 		return v.to_f if v.is_numeric?
 		return true if v == "true"
