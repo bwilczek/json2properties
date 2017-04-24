@@ -17,10 +17,14 @@ class String
 		self[0].eql?("0") && self.length > 1
 	end
 
+	def is_numeric_with_underscores?
+		self.is_numeric? && self.include?('_')
+	end
+
 end
 
 class Json2properties
-	VERSION = '0.0.3'
+	VERSION = '0.0.4'
 	SEPARATOR = '.'
 
 	def initialize
@@ -77,6 +81,7 @@ class Json2properties
 	private
 
 	def fix_type(v)
+		return v if v.is_numeric_with_underscores?
 		return v if v.is_numeric_leading_zero?
 		return v.to_i if v.is_i?
 		return v.to_f if v.is_numeric?
