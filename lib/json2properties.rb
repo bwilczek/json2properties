@@ -5,7 +5,7 @@ require 'active_support/core_ext/hash'
 
 class String
 	def is_i?
-		/\A\d+\z/ === self
+		/\A-?\d+\z/ === self
 	end
 
 	def is_numeric?
