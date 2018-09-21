@@ -14,5 +14,5 @@ Gem::Specification.new do |s|
   s.executables = [ 'json2properties', 'properties2json' ]
   s.required_ruby_version = '~> 2.0'
   s.add_dependency 'java-properties', '~> 0.2'
-  s.add_dependency 'activesupport', '~> 3.0'
+  s.add_dependency 'activesupport', '~> 5.0'
 end

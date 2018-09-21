@@ -24,7 +24,7 @@ class String
 end
 
 class Json2properties
-	VERSION = '0.0.4'
+	VERSION = '0.0.5'
 	SEPARATOR = '.'
 
 	def initialize

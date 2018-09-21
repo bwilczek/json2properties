@@ -1,19 +1,26 @@
 PATH
   remote: .
   specs:
-    json2properties (0.0.2)
-      activesupport (~> 3.0)
+    json2properties (0.0.5)
+      activesupport (~> 5.0)
       java-properties (~> 0.2)
 
 GEM
   remote: https://rubygems.org/
   specs:
-    activesupport (3.2.22.5)
-      i18n (~> 0.6, >= 0.6.4)
-      multi_json (~> 1.0)
-    i18n (0.7.0)
+    activesupport (5.2.1)
+      concurrent-ruby (~> 1.0, >= 1.0.2)
+      i18n (>= 0.7, < 2)
+      minitest (~> 5.1)
+      tzinfo (~> 1.1)
+    concurrent-ruby (1.0.5)
+    i18n (1.1.0)
+      concurrent-ruby (~> 1.0)
     java-properties (0.2.0)
-    multi_json (1.12.1)
+    minitest (5.11.3)
+    thread_safe (0.3.6)
+    tzinfo (1.2.5)
+      thread_safe (~> 0.1)
 
 PLATFORMS
   ruby
@@ -22,4 +29,4 @@ DEPENDENCIES
   json2properties!
 
 BUNDLED WITH
-   1.13.6
+   1.16.5
